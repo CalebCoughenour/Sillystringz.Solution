@@ -1,4 +1,4 @@
-# Claire's Cuttery
+# Sillystringz Factory
 
 #### By Caleb Coughenour
 
