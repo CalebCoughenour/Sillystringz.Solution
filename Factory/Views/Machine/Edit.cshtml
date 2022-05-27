@@ -1,4 +1,14 @@
 @model Factory.Models.Machine
+
+<div class="topnav">
+  <a id="nav-name-link" href="/"><h1 class="nav-title">Sillystringz Inc.</h1></a>
+  <a id="nav-link" href="/">Home</a>
+  <a id="nav-link" href="/engineer">Engineers</a>
+  <a id="nav-link" href="/machine" class="active">Machines</a>
+  <a id="nav-link" href="/machine/create">Add Machine</a>
+  <a id="nav-link" href="/engineer/create">Add Engineer</a>
+</div>
+
 <h3>Edit @Html.DisplayFor(model => model.Name)</h3>
 @using(Html.BeginForm())
 {
@@ -20,5 +30,3 @@
   <input type="submit" value="Save Changes" class="btn btn-info">
 }
 <p>@Html.ActionLink($"Back To {Model.Name}'s Details", "Details", new { id = Model.MachineId })</p>
-<p>@Html.ActionLink("Back To List Of Machines", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

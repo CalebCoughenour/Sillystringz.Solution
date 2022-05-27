@@ -1,5 +1,13 @@
 @model Factory.Models.Machine
 
+<div class="topnav">
+  <a id="nav-name-link" href="/"><h1 class="nav-title">Sillystringz Inc.</h1></a>
+  <a id="nav-link" href="/">Home</a>
+  <a id="nav-link" href="/engineer">Engineers</a>
+  <a id="nav-link" href="/machine">Machines</a>
+  <a id="nav-link" href="/machine/create" class="active">Add Machine</a>
+  <a id="nav-link" href="/engineer/create">Add Engineer</a>
+</div>
 
   <h3>Add Machine</h3>
 
@@ -17,8 +25,3 @@
   
     <input type="submit" value="Enter" />
   }
-
-<div class="big-button">
-  <p>@Html.ActionLink("Back To Homepage", "Index", "Home")</p>
-  <p>@Html.ActionLink("Back To Machines", "Index", "Machine")</p>
-</div>
