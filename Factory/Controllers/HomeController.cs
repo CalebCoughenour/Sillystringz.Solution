@@ -18,6 +18,7 @@ namespace Factory.Controllers
       {
         ViewBag.Engineers = _db.Engineers.ToList();
         ViewBag.Machines = _db.Machines.ToList();
+        ViewBag.PageTitle = "Home";
         return View();
       }
 
