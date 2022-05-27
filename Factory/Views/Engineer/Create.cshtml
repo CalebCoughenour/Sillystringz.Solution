@@ -1,4 +1,12 @@
 @model Factory.Models.Engineer
+<div class="topnav">
+  <a id="nav-name-link" href="/"><h1 class="nav-title">Sillystringz Inc.</h1></a>
+  <a id="nav-link" href="/">Home</a>
+  <a id="nav-link" href="/engineer">Engineers</a>
+  <a id="nav-link" href="/machine">Machines</a>
+  <a id="nav-link" href="/machine/create">Add Machine</a>
+  <a id="nav-link" href="/engineer/create" class="active">Add Engineer</a>
+</div>
 
 <h4>Add Engineer</h4>
 @using (Html.BeginForm())
@@ -7,5 +15,3 @@
   @Html.TextBoxFor(model => model.Name)
   <input type="submit" value="Add Engineer" />
 }
-<p>@Html.ActionLink("Show Engineers", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

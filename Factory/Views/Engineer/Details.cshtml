@@ -1,6 +1,15 @@
 @model Factory.Models.Engineer
 @using Factory.Models
 
+<div class="topnav">
+  <a id="nav-name-link" href="/"><h1 class="nav-title">Sillystringz Inc.</h1></a>
+  <a id="nav-link" href="/">Home</a>
+  <a id="nav-link" href="/engineer" class="active">Engineers</a>
+  <a id="nav-link" href="/machine">Machines</a>
+  <a id="nav-link" href="/machine/create">Add Machine</a>
+  <a id="nav-link" href="/engineer/create">Add Engineer</a>
+</div>
+
 <h2>@Model.Name Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
@@ -29,5 +38,3 @@
 <p>@Html.ActionLink("Add Machine", "AddMachine", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Back to Engineers", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

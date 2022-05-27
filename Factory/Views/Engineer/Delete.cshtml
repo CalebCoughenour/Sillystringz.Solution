@@ -1,4 +1,12 @@
 @model Factory.Models.Engineer
+<div class="topnav">
+  <a id="nav-name-link" href="/"><h1 class="nav-title">Sillystringz Inc.</h1></a>
+  <a id="nav-link" href="/">Home</a>
+  <a id="nav-link" href="/engineer" class="active">Engineers</a>
+  <a id="nav-link" href="/machine">Machines</a>
+  <a id="nav-link" href="/machine/create">Add Machine</a>
+  <a id="nav-link" href="/engineer/create">Add Engineer</a>
+</div>
 
 <h2>Are you sure you want to remove @Model.Name?</h2>
 
@@ -7,5 +15,4 @@
 {
   <input type="submit" value="Delete" />
 }
-@Html.ActionLink("Back to Engineers", "Index")
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+
