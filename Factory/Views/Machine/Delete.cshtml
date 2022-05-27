@@ -1,0 +1,14 @@
+@model Factory.Models.Machine
+
+
+<h3>Are You Sure You Want To Delete @Html.DisplayFor(model => model.Name)</h3>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete", class="btn btn-danger">
+}
+
+
+<p>@Html.ActionLink($"Back to details", "Details", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Back to machines", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
