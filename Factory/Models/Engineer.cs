@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Factory
+namespace Factory.Models
 {
   public class Engineer
   {
@@ -13,5 +13,6 @@ namespace Factory
     public string Name { get; set; }
     public int EngineerId { get; set; }
     public virtual ICollection<EngineerMachine> JoinEntities { get; set; }
+    
   }
 }
