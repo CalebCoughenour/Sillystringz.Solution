@@ -1,42 +1,62 @@
 @using Factory.Models
 @model List<Factory.Models.Engineer>
 
-<h1>Dr. Sillystringz Factory</h1>
 
+<div class="topnav">
+  <a id="nav-name-link" href="/"><h1 class="nav-title">Sillystringz Inc.</h1></a>
+  <a id="nav-link" href="/" class="active">Home</a>
+  <a id="nav-link" href="/engineer">Engineers</a>
+  <a id="nav-link" href="/machine">Machines</a>
+  <a id="nav-link" href="/machine/create">Add Machine</a>
+  <a id="nav-link" href="/engineer/create">Add Engineer</a>
+</div>
 
-@if (ViewBag.Engineers.Count == 0)
-{
-  <p>No engineers have been added yet, add one below</p>
-}
-else
-{
-  {
-    <h4>Engineer List:</h4>
-    <ul>
-      @foreach (Engineer engineer in ViewBag.Engineers)
-      {
-        <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineer", new { id = engineer.EngineerId })</li>
-      }
-    </ul>
-  }
-}
-@if (ViewBag.Machines.Count == 0)
-{
-  <p>No machines have been added yet, add one below</p>
-}
-else
-{
-  {
-    <h4>Machine List:</h4>
-    <ul>
-      @foreach (Machine machine in ViewBag.Machines)
-      {
-        <li>@Html.ActionLink($"{machine.Name}", "Details", "Machine", new { id = machine.MachineId })</li>
-      }
-    </ul>
-  }
-}
+<div class="container">
+  <img class="img-logo" src="~/img/logo.png">
+  <h1 class="home-header" id="centered">Dr. Sillystringz Factory</h1>
 
-
-<p>@Html.ActionLink("Add new engineer", "Create", "Engineer")</p>
-<p>@Html.ActionLink("Add new machine", "Create", "Machine")</p>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <h5 class="engineer-list">Engineer List</h5>
+        @if (ViewBag.Engineers.Count == 0)
+        {
+          <p id="centered">No engineers have been added yet</p>
+        }
+        else
+        {
+          {
+            <h4>Engineer List:</h4>
+            <ul>
+              @foreach (Engineer engineer in ViewBag.Engineers)
+              {
+                <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineer", new { id = engineer.EngineerId })</li>
+              }
+            </ul>
+          }
+        }
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <h5 class="machine-list">Machine List</h5>
+        @if (ViewBag.Machines.Count == 0)
+        {
+          <p id="centered">No machines have been added yet, add one below</p>
+        }
+        else
+        {
+          {
+            <h4>Machine List:</h4>
+            <ul>
+              @foreach (Machine machine in ViewBag.Machines)
+              {
+                  <li>@Html.ActionLink($"{machine.Name}", "Details", "Machine", new { id = machine.MachineId })</li>
+              }
+            </ul>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>
