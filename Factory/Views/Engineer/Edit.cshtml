@@ -1,0 +1,11 @@
+@model Factory.Models.Engineer
+
+<h4>Edit @Model.Name</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Show Engineers", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
