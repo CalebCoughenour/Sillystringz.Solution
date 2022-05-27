@@ -38,6 +38,7 @@ namespace Factory.Controllers
 
     public ActionResult Details (int id)
     {
+      ViewBag.PageTitle = "Machine Details";
       var thisMachine = _db.Machines
         .Include(machine => machine.JoinEntities)
         .ThenInclude(join => join.Engineer)
@@ -47,6 +48,7 @@ namespace Factory.Controllers
 
     public ActionResult Edit (int id)
     {
+      ViewBag.PageTitle = "Edit Machine";
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
@@ -61,6 +63,7 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
+      ViewBag.PageTitle = "Delete Machine";
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
@@ -76,6 +79,7 @@ namespace Factory.Controllers
 
     public ActionResult AddEngineer(int id)
     {
+      ViewBag.PageTitle = "Add Engineer";
       var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View(thisMachine);
