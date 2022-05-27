@@ -1,0 +1,24 @@
+@model Factory.Models.Machine
+<h3>Edit @Html.DisplayFor(model => model.Name)</h3>
+@using(Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+  
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+
+  @Html.Label("Date:")
+  <input id="Date" name="Date" type="date" required>
+
+  @Html.LabelFor(model => model.Ticket)
+  @Html.TextBoxFor(model => model.Ticket)
+
+  <h3>@Html.Label("Completed?"): @Html.CheckBox("Completed", false)</h3>
+
+
+  <input type="submit" value="Save Changes" class="btn btn-info">
+}
+<p>@Html.ActionLink($"Back To {Model.Name}'s Details", "Details", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Back To List Of Machines", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
