@@ -1,0 +1,40 @@
+@model Factory.Models.Machine
+
+
+<h3>@Html.DisplayFor(model => model.Name)'s Details:</h3>
+ 
+<h5>@Html.Label("Ticket Details"): @Html.DisplayFor(model => model.Ticket)</h5>
+<h5>@Html.Label("Date Of Ticket"): @Html.DisplayFor(model => model.Date)</h5>
+@if(@Model.Completed == true)
+{
+  <h3>@Html.Label("Completed"): Completed</h3>
+}
+else
+{
+  <h3>@Html.Label("Completed"): Not Completed</h3>
+}
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>@Html.DisplayFor(model => model.Name) Does Not Have Any Engineers's Assigned</p>
+}
+else
+{
+  <h5>@Html.DisplayFor(model => model.Name)'s Engineers</h5>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Engineer.Name</li>
+      @using (Html.BeginForm("DeleteEngineer", "Machines"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete" class="btn btn-danger">
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink($"Edit machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink($"Delete machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Back to Machines", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
