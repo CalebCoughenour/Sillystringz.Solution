@@ -17,13 +17,17 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
+      ViewBag.PageTitle = "Engineers";
       List<Engineer> model = _db.Engineers.ToList();
       return View(model);
     }
+
     public ActionResult Create()
     {
+      ViewBag.PageTitle = "Add Engineer";
       return View();
     }
+
     [HttpPost]
     public ActionResult Create(Engineer engineer)
     {
@@ -31,5 +35,18 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      ViewBag.PageTitle = "Engineer Details";
+      var thisEngineer = _db.Engineers
+        .Include(engineer => engineer.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
+    }
+
+
+
   }
 }
