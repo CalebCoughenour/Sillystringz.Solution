@@ -1,0 +1,42 @@
+@using Factory.Models
+@model List<Factory.Models.Engineer>
+
+<h1>Dr. Sillystringz Factory</h1>
+
+
+@if (ViewBag.Engineers.Count == 0)
+{
+  <p>No engineers have been added yet, add one below</p>
+}
+else
+{
+  {
+    <h4>Engineer List:</h4>
+    <ul>
+      @foreach (Engineer engineer in ViewBag.Engineers)
+      {
+        <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineer", new { id = engineer.EngineerId })</li>
+      }
+    </ul>
+  }
+}
+@if (ViewBag.Machines.Count == 0)
+{
+  <p>No machines have been added yet, add one below</p>
+}
+else
+{
+  {
+    <h4>Machine List:</h4>
+    <ul>
+      @foreach (Machine machine in ViewBag.Machines)
+      {
+        <li>@Html.ActionLink($"{machine.Name}", "Details", "Machine", new { id = machine.MachineId })</li>
+      }
+    </ul>
+  }
+}
+
+
+<p>@Html.ActionLink("Add new engineer", "Create", "Engineer")</p>
+<p>@Html.ActionLink("Add new machine", "Create", "Machine")</p>
