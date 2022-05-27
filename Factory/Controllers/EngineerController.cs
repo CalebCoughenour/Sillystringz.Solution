@@ -15,10 +15,21 @@ namespace Factory.Controllers
       _db = db;
     }
 
-    public ACtionResult Index()
+    public ActionResult Index()
     {
-      List<Category> model = _db.Engineers.ToList();
+      List<Engineer> model = _db.Engineers.ToList();
       return View(model);
+    }
+    public ActionResult Create()
+    {
+      return View();
+    }
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index", "Home");
     }
   }
 }
