@@ -17,7 +17,7 @@
       {
         <li>@join.Machine.Name</li>
 
-        @using (Html.BeginForm("DeleteMachine", "Engineers"))
+        @using (Html.BeginForm("DeleteMachine", "Engineer"))
         {
           @Html.Hidden("joinId", @join.EngineerMachineId)
           <input type="submit" value="Delete" class="btn btn-danger">
