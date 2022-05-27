@@ -48,6 +48,7 @@ namespace Factory.Controllers
 
     public ActionResult Edit(int id)
     {
+      ViewBag.PageTitle = "Edit Engineer";
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
@@ -61,6 +62,7 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
+      ViewBag.PageTitle = "Delete Engineer";
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
