@@ -1,0 +1,25 @@
+@using Factory.Models;
+
+<h1>Engineers</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Engineers have been added yet</h3>
+  <h4>Please add one below</h4>
+} 
+
+<ul>
+  @foreach(Engineer engineer in Model)
+  {
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
+  }
+</ul>
+@if (@Model.Count == 0)
+{
+  <p>@Html.ActionLink("Add first engineer", "Create")</p>
+}
+else
+{
+  <p>@Html.ActionLink("Add new category", "Create")</p>
+}
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
